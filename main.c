@@ -602,6 +602,8 @@ void main( void )
   UCSCTL4 |= SELA_2;                       
   do
   {
+    __delay_cycles(600000);
+  __delay_cycles(600000);
     UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + XT1HFOFFG + DCOFFG);
                                             // Clear XT2,XT1,DCO fault flags
     SFRIFG1 &= ~OFIFG;                      // Clear fault flags
@@ -614,9 +616,12 @@ void main( void )
   P7SEL |= 0x03;                            // Select XT1
   UCSCTL6 &= ~(XT1OFF);                     // XT1 On
   UCSCTL6 |= XCAP_3;                        // Internal load cap 
-  __delay_cycles(600000);
-  __delay_cycles(600000);
+
   
+  __delay_cycles(600000);
+  __delay_cycles(600000);
+  __delay_cycles(600000);
+  __delay_cycles(600000);
   
  LCD_INIT();  
  check_cal();
@@ -672,9 +677,9 @@ void main( void )
       cap[15]>>=4;
       }
            
-        #ifndef  DEBUG    
+     
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+    
 
   ///REF        
        SET_SC1();
@@ -709,9 +714,9 @@ void main( void )
      }    
       
             
-        #ifndef  DEBUG    
+
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+    
 
  ////  1
    
@@ -729,9 +734,9 @@ void main( void )
       ltemp>>=12;
       cap[1]=ltemp; 
        
-        #ifndef  DEBUG    
+   
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+  
 
  //    2 
     CLR_SC2();
@@ -748,9 +753,9 @@ void main( void )
       ltemp>>=12;
       cap[2]=ltemp;   
             
-        #ifndef  DEBUG    
+   
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+   
 
   //   3  
     CLR_SC3();
@@ -767,9 +772,9 @@ void main( void )
       ltemp>>=12;
       cap[3]=ltemp;       
           
-        #ifndef  DEBUG    
+
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+  
 
    // 4    
     CLR_SC4();
@@ -786,10 +791,9 @@ void main( void )
       ltemp>>=12;
       cap[4]=ltemp;     
             
-        #ifndef  DEBUG    
+  
         WDTCTL =  WDTPW + 0x9;
-        #endif    
-
+ 
   //   5  
     CLR_SC5();
     SET_SC6();
@@ -805,9 +809,9 @@ void main( void )
       ltemp>>=12;
       cap[5]=ltemp;     
             
-        #ifndef  DEBUG    
+
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+ 
  
   //   6  
     CLR_SC6();
@@ -824,9 +828,9 @@ void main( void )
       ltemp>>=12;
       cap[6]=ltemp;     
              
-        #ifndef  DEBUG    
+    
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+     
      
   //   7  
     CLR_SC7();
@@ -843,10 +847,9 @@ void main( void )
       ltemp>>=12;
       cap[7]=ltemp;  
             
-        #ifndef  DEBUG    
+  
         WDTCTL =  WDTPW + 0x9;
-        #endif    
-
+ 
     // 8    
     CLR_SC8();
     SET_SC9();
@@ -862,9 +865,9 @@ void main( void )
       ltemp>>=12;
       cap[8]=ltemp;    
             
-        #ifndef  DEBUG    
+  
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+  
 
       //   9 
        CLR_SC9();
@@ -881,9 +884,9 @@ void main( void )
       ltemp>>=12;
       cap[9]=ltemp;   
             
-        #ifndef  DEBUG    
+   
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+   
 
       
        //  10  
@@ -902,9 +905,8 @@ void main( void )
       cap[10]=ltemp;     
       
       
-        #ifndef  DEBUG    
+ 
         WDTCTL =  WDTPW + 0x9;
-        #endif    
 
      //   11 
        CLR_SC11();
@@ -921,9 +923,9 @@ void main( void )
       ltemp>>=12;
       cap[11]=ltemp;    
       
-        #ifndef  DEBUG    
+    
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+
 
     //   12 
        CLR_SC12();
@@ -940,9 +942,9 @@ void main( void )
       ltemp>>=12;
       cap[12]=ltemp;  
           
-        #ifndef  DEBUG    
+   
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+ 
   
     //   13 
        CLR_SC13();
@@ -959,9 +961,9 @@ void main( void )
       ltemp>>=12;
       cap[13]=ltemp;  
            
-        #ifndef  DEBUG    
+  
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+  
  
     //   14 
        CLR_SC14();
@@ -979,10 +981,9 @@ void main( void )
       cap[14]=ltemp;  
       
       
-        #ifndef  DEBUG    
+  
         WDTCTL =  WDTPW + 0x9;
-        #endif    
-
+ 
     if(cap[0]<=cap[15])
     {
       ui=1200;
@@ -1032,9 +1033,9 @@ void main( void )
      if(chan>(duanshu+2))chan=0;
     show(disp_buffer);
     anjian();  
-        #ifndef  DEBUG    
+        
         WDTCTL =  WDTPW + 0x9;
-        #endif    
+      
     
         
       }
@@ -1232,9 +1233,9 @@ void anjian(void)
 	{
 	if(SUP==0)				//KEY a 
 	{	
-        #ifndef  DEBUG    
+          
         WDTCTL =  WDTPW + 0x9;
-        #endif   
+   
 	  if(++vola>=12)vola=0;
 	  display(&caidan[vola][0]);
 	//按键松开
@@ -1247,9 +1248,9 @@ void anjian(void)
         }                      
 	if(ENTER==0)
         {
-          #ifndef  DEBUG    
+           
           WDTCTL =  WDTPW + 0x9;
-          #endif 
+     
           
           tim=1;
 	  volb=0;
@@ -1297,10 +1298,9 @@ void anjian(void)
       
       if(SDWN==0)//键按下
       {
-          #ifndef  DEBUG    
+          
           WDTCTL =  WDTPW + 0x9;
-          #endif 
-        
+    
 	if(nomove)
 	{
           if(disp_buffer[vold]==0xa)disp_buffer[vold]=volb;
@@ -1334,9 +1334,9 @@ void anjian(void)
       if(ENTER==0)
       {          
 
-          #ifndef  DEBUG    
+     
           WDTCTL =  WDTPW + 0x9;
-          #endif 
+      
 	unsigned char ddshu;
 	//菜单切换
 	volc++;
@@ -1657,9 +1657,9 @@ void anjian(void)
 			
   if((SUP==0)&&(nomove==1))
     {
-           #ifndef  DEBUG    
+          
           WDTCTL =  WDTPW + 0x9;
-          #endif 
+      
 	//vold闪烁位
 	if((vola==0x7)&&(vold==0x1))  //，显示移位时，正负号特殊情况
 	{

@@ -27,7 +27,13 @@
 *.i*86
 *.x86_64
 *.hex
-
+*.dep
+*.d43
+*.pbd
+*.pbi
+*.r43
+*.dni
+*.wsdt
 # Debug files
 *.dSYM/
 
